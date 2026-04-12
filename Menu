@@ -1,0 +1,17 @@
+public class Menu extends World
+{
+
+   
+    public Menu()
+    {    
+        
+        super(800,600,1);
+           
+        
+        addObject(new PersonajeSelecto(0), 200, 300);
+        addObject(new PersonajeSelecto(1), 400, 300);
+        addObject(new PersonajeSelecto(2), 600, 300);
+          
+    }
+    
+}
