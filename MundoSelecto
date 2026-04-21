@@ -1,0 +1,33 @@
+public class MundoSelecto extends Actor
+{
+    int nivel;
+    boolean desbloqueado = false;
+
+    public MundoSelecto(int n){
+        nivel = n;
+    }
+    
+     public void setDesbloqueado(boolean estado){
+        desbloqueado = estado;
+
+        if(estado){
+            setImage("nivel" + nivel + ".png");
+        } else {
+            setImage("bloqueado.png");
+        }
+    }
+
+    
+    /**
+     * Act - do whatever the MundoSelecto wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act()
+    {
+        // Add your action code here.
+        if(desbloqueado && Greenfoot.mouseClicked(this)){
+            Greenfoot.setWorld(new Mundo(GameData.personajeSeleccionado, nivel));
+        }
+
+    }
+}
