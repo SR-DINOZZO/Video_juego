@@ -1,0 +1,53 @@
+public class Mundo extends World
+{
+
+      int personaje;
+    int nivel;
+     
+    Nivel[][] niveles;
+    public Mundo(int personaje, int nivel){
+        super(800, 600, 1);
+
+        this.personaje = personaje;
+        this.nivel = nivel;
+        
+        inicializarNiveles();
+
+        prepararNivel();
+    }
+    private void inicializarNiveles(){
+        niveles = new Nivel[][]{
+            { new Nivel0P0(), new Nivel1P0(), null, null, null, null, null, null, null, null },
+            { null, null, null, null, null, null, null, null, null, null },
+            { null, null, null, null, null, null, null, null, null, null }
+        };
+    }
+
+
+    public void prepararNivel(){
+        Nivel n = niveles[personaje][nivel];
+
+        if(n != null){
+            n.cargar(this);
+        }
+    }
+
+    public void act(){
+        Nivel n = niveles[personaje][nivel];
+
+        if(n != null){
+            n.actualizar(this);
+        }
+
+        if(Greenfoot.isKeyDown("space")){
+            completarNivel();
+        }
+    }
+
+    public void completarNivel(){
+        if(nivel < 9){
+            GameData.progreso[personaje][nivel + 1] = 1;
+        }
+        Greenfoot.setWorld(new SeleccionMundos());
+    }
+}
