@@ -1,0 +1,25 @@
+public class SeleccionMundos extends World
+{
+
+    /**
+     * Constructor for objects of class SeleccionMundos.
+     * 
+     */
+    public SeleccionMundos()
+    {    
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+           super(800, 600, 1);
+
+        int personaje = GameData.personajeSeleccionado;
+
+       for(int i = 0; i < 10; i++){
+            MundoSelecto b = new MundoSelecto(i);
+
+            b.setDesbloqueado(GameData.progreso[personaje][i] == 1);
+
+            addObject(b, 100 + i*60, 300);
+        }
+
+ 
+    }
+}
