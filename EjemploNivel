@@ -1,0 +1,13 @@
+public class Nivel0P0 extends Nivel 
+{
+    // instance variables - replace the example below with your own
+    
+
+    /**
+     * Constructor for objects of class Nivel0P0
+     */
+    public void cargar(Mundo mundo){
+        mundo.addObject(new Enemigo1(), 200, 200);
+    }
+
+}
